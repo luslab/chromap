@@ -159,7 +159,7 @@ class SequenceBatch {
       if (start_position + i < sequence_length) {
         uint8_t current_base =
             SequenceBatch::CharToUint8(sequence[i + start_position]);
-        std::cerr << "CURRENT-BASE: " << current_base << "\n";
+        std::cerr << "CURRENT-BASE: " << Uint8ToChar(current_base) << "\n";
         if (current_base < 4) {                        // not an ambiguous base
           seed = ((seed << 2) | current_base) & mask;  // forward k-mer
           std::cerr << "SEED-REALBASE: " << seed << "\n";
