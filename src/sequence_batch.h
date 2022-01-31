@@ -163,9 +163,11 @@ class SequenceBatch {
           seed = ((seed << 2) | current_base) & mask;  // forward k-mer
         } else {
           seed = (seed << 2) & mask;  // N->A
+          std::cerr << "HERE " << current_base << "\n";
         }
       } else {
         seed = (seed << 2) & mask;  // Pad A
+        std::cerr << "HERE 2 " << current_base << "\n";
       }
     }
     return seed;
