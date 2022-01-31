@@ -4802,6 +4802,8 @@ void Chromap<MappingRecord>::LoadBarcodeWhitelist() {
     kh_value(barcode_whitelist_lookup_table_,
              barcode_whitelist_lookup_table_iterator) = 0;
 
+    std::cerr << "BC-KEY " << barcode_key << "\n";
+    std::cerr << "BC-DATA " << barcode.data() << "\n";
     std::cerr << "HASH-CODE " << khash_return_code << "\n";
     assert(khash_return_code != -1 && khash_return_code != 0);
     ++num_barcodes;
