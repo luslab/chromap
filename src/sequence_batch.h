@@ -159,17 +159,17 @@ class SequenceBatch {
       if (start_position + i < sequence_length) {
         uint8_t current_base =
             SequenceBatch::CharToUint8(sequence[i + start_position]);
-        std::cerr << "HERE 4" << current_base << "\n";
+        std::cerr << "CURRENT-BASE: " << current_base << "\n";
         if (current_base < 4) {                        // not an ambiguous base
           seed = ((seed << 2) | current_base) & mask;  // forward k-mer
-          std::cerr << "HERE 3" << mask << "\n";
+          std::cerr << "SEED-REALBASE: " << seed << "\n";
         } else {
           seed = (seed << 2) & mask;  // N->A
-          std::cerr << "HERE " << seed << "\n";
+          std::cerr << "SEED-N-DETECT: " << seed << "\n";
         }
       } else {
         seed = (seed << 2) & mask;  // Pad A
-        std::cerr << "HERE 2 " << seed << "\n";
+        std::cerr << "SEED-PAD-A: " << seed << "\n";
       }
     }
     return seed;
