@@ -161,6 +161,7 @@ class SequenceBatch {
             SequenceBatch::CharToUint8(sequence[i + start_position]);
         if (current_base < 4) {                        // not an ambiguous base
           seed = ((seed << 2) | current_base) & mask;  // forward k-mer
+          std::cerr << "HERE 3" << seed << "\n";
         } else {
           seed = (seed << 2) & mask;  // N->A
           std::cerr << "HERE " << seed << "\n";
